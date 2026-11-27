@@ -1,6 +1,4 @@
 <?php
-// bootstrap.php — єдина точка підключення всіх класів
-// Порядок важливий: Category та Example потрібні раніше за Command
 require_once __DIR__ . '/classes/Category.php';
 require_once __DIR__ . '/classes/Example.php';
 require_once __DIR__ . '/classes/Command.php';
