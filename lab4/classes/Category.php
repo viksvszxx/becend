@@ -1,5 +1,4 @@
 <?php
-// classes/Category.php
 class Category {
     public function __construct(
         private int $id,
