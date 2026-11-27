@@ -1,5 +1,5 @@
 <?php
-// classes/Command.php
+
 class Command {
     private array $examples = [];
 
@@ -11,7 +11,6 @@ class Command {
         private string $syntax
     ) {}
 
-    // --- Гетери ---
     public function getId(): int { return $this->id; }
     public function getName(): string { return $this->name; }
     public function getCategory(): Category { return $this->category; }
@@ -19,7 +18,6 @@ class Command {
     public function getSyntax(): string { return $this->syntax; }
     public function getExamples(): array { return $this->examples; }
 
-    // --- Сетери ---
     public function setName(string $name): void {
         $this->name = $name;
     }
@@ -37,7 +35,6 @@ class Command {
         $this->examples[] = $example;
     }
 
-    // Для JSON API: приватні властивості вручну перетворюємо в масив
     public function toArray(): array {
         return [
             'id'          => $this->id,
