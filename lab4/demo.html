@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Консольні команди ОС Windows — демонстрація API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #999; padding: 6px 10px; text-align: left; }
+        th { background: #eee; }
+        code { background: #f4f4f4; padding: 1px 4px; }
+    </style>
+</head>
+<body>
+    <h1>Довідник консольних команд ОС Windows</h1>
+    <p id="status">Завантаження...</p>
+    <table id="table" hidden>
+        <thead>
+            <tr>
+                <th>№</th><th>Команда</th><th>Категорія</th>
+                <th>Призначення</th><th>Синтаксис</th><th>Приклади</th>
+            </tr>
+        </thead>
+        <tbody id="body"></tbody>
+    </table>
+
+    <script>
+        fetch('api.php')
+            .then(response => response.json())
+            .then(commands => {
+                const body = document.getElementById('body');
+                commands.forEach(c => {
+                    const tr = document.createElement('tr');
+                    const examples = c.examples
+                        .map(e => e.description + ': ' + e.code)
+                        .join('\n');
+                    [c.id, c.name, c.category, c.description, c.syntax, examples]
+                        .forEach(value => {
+                            const td = document.createElement('td');
+                            td.textContent = value;
+                            td.style.whiteSpace = 'pre-line';
+                            tr.appendChild(td);
+                        });
+                    body.appendChild(tr);
+                });
+                document.getElementById('table').hidden = false;
+                document.getElementById('status').textContent =
+                    'Отримано команд: ' + commands.length;
+            })
+            .catch(error => {
+                document.getElementById('status').textContent =
+                    'Помилка завантаження даних';
+                console.error(error);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+id,name,category_id,description,syntax
+1,dir,1,Показує вміст папки,dir [шлях] [/a] [/s]
+2,ipconfig,2,Показує налаштування мережевих адаптерів,ipconfig [/all] [/release] [/renew]
+3,ping,2,Перевіряє доступність вузла,ping [-n кількість] адреса
+4,tasklist,3,Показує список запущених процесів,tasklist [/svc] [/fi фільтр]
+5,copy,1,Копіює файли,copy джерело призначення
+6,systeminfo,3,Показує відомості про систему,systeminfo

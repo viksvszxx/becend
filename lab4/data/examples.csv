@@ -1,0 +1,8 @@
+id,command_id,description,code
+1,1,Показати всі файли включно з прихованими,dir C:\Users /a
+2,2,Повна інформація про адаптери,ipconfig /all
+3,2,Оновити IP-адресу,ipconfig /renew
+4,3,Надіслати 4 запити до google.com,ping -n 4 google.com
+5,4,Показати процеси разом зі службами,tasklist /svc
+6,5,Скопіювати файл у папку backup,copy report.txt D:\backup
+7,6,Показати відомості про систему,systeminfo
