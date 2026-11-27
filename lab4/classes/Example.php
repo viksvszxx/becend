@@ -1,5 +1,4 @@
 <?php
-// classes/Example.php
 class Example {
     public function __construct(
         private int $id,
