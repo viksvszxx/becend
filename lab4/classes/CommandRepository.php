@@ -1,5 +1,4 @@
 <?php
-// classes/CommandRepository.php
 class CommandRepository {
     private array $categories = [];
     private array $commands = [];
@@ -16,16 +15,15 @@ class CommandRepository {
         $this->loadExamples();
     }
 
-    // ---------- Робота з CSV ----------
     private function readCsv(string $file): array {
         $rows = [];
         $handle = fopen($file, 'r');
         if ($handle === false) {
             return $rows;
         }
-        fgetcsv($handle, 0, ',', '"', ''); // пропустити заголовок
+        fgetcsv($handle, 0, ',', '"', ''); 
         while (($row = fgetcsv($handle, 0, ',', '"', '')) !== false) {
-            if ($row !== [null]) {        // пропустити порожні рядки
+            if ($row !== [null]) {       
                 $rows[] = $row;
             }
         }
@@ -42,7 +40,7 @@ class CommandRepository {
         fclose($handle);
     }
 
-    // ---------- Завантаження даних ----------
+
     private function loadCategories(): void {
         foreach ($this->readCsv($this->categoriesFile) as $row) {
             [$id, $name] = $row;
@@ -73,7 +71,6 @@ class CommandRepository {
         }
     }
 
-    // ---------- Збереження даних ----------
     private function save(): void {
         $commandRows = [];
         $exampleRows = [];
@@ -102,7 +99,7 @@ class CommandRepository {
         );
     }
 
-    // ---------- CRUD ----------
+
     public function getCategories(): array {
         return $this->categories;
     }
@@ -161,7 +158,6 @@ class CommandRepository {
         return true;
     }
 
-    // Приклади видаленої команди зникають разом з нею (цілісність даних)
     public function delete(int $id): bool {
         if (!isset($this->commands[$id])) {
             return false;
