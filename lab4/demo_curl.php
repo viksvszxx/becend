@@ -1,5 +1,4 @@
 <?php
-// demo_curl.php — окремий клієнт API на PHP (cURL)
 header('Content-Type: text/html; charset=utf-8');
 
 $ch = curl_init('http://localhost/lab4/api.php');
