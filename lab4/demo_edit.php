@@ -1,6 +1,4 @@
 <?php
-// demo_edit.php — демонстрація запису змін назад у CSV
-// Працює з КОПІЯМИ файлів у тимчасовій теці, тому оригінали в data/ не змінюються
 require_once __DIR__ . '/classes/Category.php';
 require_once __DIR__ . '/classes/Example.php';
 require_once __DIR__ . '/classes/Command.php';
